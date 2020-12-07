@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wps:Execute
+  xmlns:wps="http://www.opengis.net/wps/2.0"
+  xmlns:ows="http://www.opengis.net/ows/2.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wps/2.0 http://schemas.opengis.net/wps/2.0/wps.xsd"
+  service="WPS" version="2.0.0" response="document" mode="sync">
+  <ows:Identifier>iso19157.DQ_ThematicAccuracy.DQ_ThematicClassificationCorrectnessR</ows:Identifier>
+  <wps:Input id="inputReferenceDataset">
+      <wps:Reference schema="http://schemas.opengis.net/gml/3.1.0/base/feature.xsd" mimeType="text/xml; subtype=gml/3.1.0" xlink:href="http://192.168.79.133:8080/geoserver/cite/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=cite:conceptual_consistency&amp;outputFormat=gml3"/>
+</wps:Input>
+   <wps:Input id="inputTargetDataset">
+      <wps:Reference mimeType="image/geotiff" xlink:href="http://meekbaa1.miniserver.com/dl/conceptual_raster.TIF"/>
+</wps:Input>
+  <wps:Input id="threshold">
+    <wps:Data>
+    <wps:LiteralValue>10</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Input id="inputReferenceDataField">
+    <wps:Data>
+    <wps:LiteralValue>LUCODE</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Input id="numberOfSamplePoints">
+    <wps:Data>
+    <wps:LiteralValue>20</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Output id="outputMetadataChunk" transmission="value"/>
+</wps:Execute>   
+   

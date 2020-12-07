@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+	<!--  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+          
+    	  xsi:schemaLocation="http://oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">-->
+	<display-name>WPS REST Services</display-name>
+
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/service</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>resteasy.providers</param-name>
+		<param-value>rest.TokenValidationFilter</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>resteasy-servlet</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>rest.RestApplication</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>resteasy-servlet</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Swagger -->
+	<servlet>
+		<servlet-name>swagger-servlet</servlet-name>
+		<servlet-class>io.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
+		<init-param>
+			<param-name>api.version</param-name>
+			<param-value>0.0.1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>swagger.api.basepath</param-name>
+			<param-value>http://localhost:8080/wps-rest/service</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<!--  CORS -->
+	
+	<filter>
+		  <filter-name>CorsFilter</filter-name>
+		  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+		  <init-param>
+		    <param-name>cors.allowed.origins</param-name>
+		    <param-value>*</param-value>
+		  </init-param>
+		  <init-param>
+		    <param-name>cors.allowed.methods</param-name>
+		    <param-value>GET,POST,HEAD,OPTIONS</param-value>
+		  </init-param>
+		  <init-param>
+		    <param-name>cors.allowed.headers</param-name>
+		    <param-value>Content-Type,Authorization</param-value>
+		  </init-param>
+		  <init-param>
+		    <param-name>cors.exposed.headers</param-name>
+		    <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
+		  </init-param>
+		  <init-param>
+		    <param-name>cors.support.credentials</param-name>
+		    <param-value>true</param-value>
+		  </init-param>
+		  <init-param>
+		    <param-name>cors.preflight.maxage</param-name>
+		    <param-value>10</param-value>
+		  </init-param>
+		</filter>
+		<filter-mapping>
+		  <filter-name>CorsFilter</filter-name>
+		  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+</web-app>

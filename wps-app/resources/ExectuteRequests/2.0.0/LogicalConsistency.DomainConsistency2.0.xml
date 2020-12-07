@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wps:Execute
+  xmlns:wps="http://www.opengis.net/wps/2.0"
+  xmlns:ows="http://www.opengis.net/ows/2.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wps/2.0 http://schemas.opengis.net/wps/2.0/wps.xsd"
+  service="WPS" version="2.0.0" response="document" mode="sync">
+  <ows:Identifier>iso19157.DQ_LogicalConsistency.DQ_DomainConsistency</ows:Identifier>
+  <wps:Input id="inputTargetData">
+   <wps:Reference schema="http://schemas.opengis.net/gml/3.1.0/base/feature.xsd" mimeType="text/xml; subtype=gml/3.1.0" xlink:href="http://demo.opengeo.org/geoserver/topp/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=topp%3Astates&amp;maxFeatures=50&amp;outputformat=gml3"/>
+  </wps:Input>
+   <wps:Input id="threshold">
+    <wps:Data>
+    <wps:LiteralValue>1</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Input id="fieldName">
+    <wps:Data>
+    <wps:LiteralValue>LAND_KM</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Input id="max">
+    <wps:Data>
+    <wps:LiteralValue>1000000</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Input id="min">
+    <wps:Data>
+    <wps:LiteralValue>143986</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Output id="outputMetadataChunk" transmission="value"/>
+</wps:Execute>   

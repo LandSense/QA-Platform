@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wps:Execute service="WPS" version="1.0.0" xmlns:wps="http://www.opengis.net/wps/1.0.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 http://schemas.opengis.net/wps/1.0.0/wpsExecute_request.xsd">
+  <ows:Identifier>iso19157.DQ_LogicalConsistency.DQ_DomainConsistency</ows:Identifier>
+  <wps:DataInputs>
+    <wps:Input>
+      <ows:Identifier>inputTargetData</ows:Identifier>
+      <wps:Reference schema="http://schemas.opengis.net/gml/3.1.0/base/feature.xsd" mimeType="text/xml; subtype=gml/3.1.0" xlink:href="http://demo.opengeo.org/geoserver/topp/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=topp%3Astates&amp;maxFeatures=50&amp;outputformat=gml3" method="GET"/>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>fieldName</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData dataType="xs:string">LAND_KM</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>min</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData dataType="xs:double">143986</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+    <wps:Input>
+      <ows:Identifier>max</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData dataType="xs:double">1000000</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+     
+    <wps:Input>
+      <ows:Identifier>threshold</ows:Identifier>
+      <wps:Data>
+        <wps:LiteralData dataType="xs:integer">1</wps:LiteralData>
+      </wps:Data>
+    </wps:Input>
+  </wps:DataInputs>
+  <wps:ResponseForm>
+    <wps:ResponseDocument storeExecuteResponse="false" lineage="false" status="false">
+      <wps:Output>
+        <ows:Identifier>outputMetadataChunk</ows:Identifier>
+      </wps:Output>
+      <wps:Output>
+        <ows:Identifier>outputFeatures</ows:Identifier>
+      </wps:Output>
+    </wps:ResponseDocument>
+  </wps:ResponseForm>
+</wps:Execute>

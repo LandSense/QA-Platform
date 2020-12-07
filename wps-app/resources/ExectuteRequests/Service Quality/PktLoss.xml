@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wps:Execute
+  xmlns:wps="http://www.opengis.net/wps/2.0"
+  xmlns:ows="http://www.opengis.net/ows/2.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wps/2.0 http://schemas.opengis.net/wps/2.0/wps.xsd"
+  service="WPS" version="2.0.0" response="document" mode="sync">
+  <ows:Identifier>helyx.servicequality.WSQM.SQ_PktLoss</ows:Identifier>
+      <wps:Input id="ipAddress">
+    <wps:Data>
+    <wps:LiteralValue>google.com</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Input id="pingCount">
+    <wps:Data>
+    <wps:LiteralValue>4</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Output id="conformanceStatement" transmission="value"/>
+</wps:Execute>   

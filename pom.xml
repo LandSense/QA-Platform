@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>WPS-Process-Development-COBWEB</groupId>
+	<artifactId>wps-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>WPS Process Development Parent</name>
+
+	<repositories>
+
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	
+		<repository>
+			<id>n52-releases</id>
+			<name>n52-releases</name>
+			<url>http://52north.org/maven/repo/releases/</url>
+		</repository>
+		<repository>
+			<id>n52-snapshots</id>
+			<name>52n Snapshots</name>
+			<url>http://52north.org/maven/repo/snapshots/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>osgeo</id>
+			<name>Open Source Geospatial Foundation Repository</name>
+			<url>http://download.osgeo.org/webdav/geotools/</url>
+		</repository>
+	</repositories>
+
+	<modules>
+		<module>wps-app</module>
+		<module>wps-rest</module>
+	</modules>
+
+	<properties>
+		<geotools.version>8.7</geotools.version> <!-- was 14.0 -->
+		<n52.version>3.6.2</n52.version>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+		
+			<!-- 52North -->
+			<dependency>
+				<groupId>org.n52.wps</groupId>
+				<artifactId>52n-wps-io-geotools</artifactId>
+				<version>${n52.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.n52.wps</groupId>
+				<artifactId>52n-wps-client-lib</artifactId>
+				<version>${n52.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.n52.wps</groupId>
+				<artifactId>52n-wps-commons</artifactId>
+				<version>${n52.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.n52.wps</groupId>
+				<artifactId>52n-wps-server</artifactId>
+				<version>${n52.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.n52.wps</groupId>
+				<artifactId>52n-wps-algorithm</artifactId>
+				<version>${n52.version}</version>
+			</dependency>
+
+			<!-- Geotools -->
+			<dependency>
+				<groupId>org.geotools</groupId>
+				<artifactId>gt-grid</artifactId>
+				<version>${geotools.version}</version>
+			</dependency>
+			<!-- <dependency> <groupId>org.geotools</groupId> <artifactId>gt-main</artifactId> 
+				<version>${geotools.version}</version> </dependency> 
+				
+			    <dependency> <groupId>org.geotools</groupId> 
+				<artifactId>gt-cql</artifactId> <version>${geotools.version}</version> </dependency> -->
+
+
+            <!-- Had to do this because of 52N libraries using earlier conflicting versions -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.2</version>
+			</dependency>
+			<dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.4.4</version>
+            </dependency>
+
+            
+            
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+
+<!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+
+			
+		</dependencies>
+	</dependencyManagement>
+</project>

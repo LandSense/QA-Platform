@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wps:Execute
+  xmlns:wps="http://www.opengis.net/wps/2.0"
+  xmlns:ows="http://www.opengis.net/ows/2.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wps/2.0 http://schemas.opengis.net/wps/2.0/wps.xsd"
+  service="WPS" version="2.0.0" response="document" mode="sync">
+  <ows:Identifier>iso19157.DQ_LogicalConsistency.DQ_TopologicalConsistency</ows:Identifier>
+  <wps:Input id="inputTargetDataset">
+    <wps:Reference schema="http://schemas.opengis.net/gml/3.1.0/base/feature.xsd"
+    xlink:href="http://demo.opengeo.org/geoserver/ne/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=ne%3Ane_10m_roads_north_america&amp;maxFeatures=50&amp;outputformat=gml3"/>
+  </wps:Input>
+  <wps:Input id="threshold">
+    <wps:Data>
+    <wps:LiteralValue>10</wps:LiteralValue>
+      </wps:Data>
+  </wps:Input>
+  <wps:Output id="outputMetadataChunk" transmission="value"/>
+</wps:Execute>   
+   

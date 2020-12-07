@@ -1,0 +1,49 @@
+<CT_CodelistCatalogue xsi:schemaLocation="http://www.isotc211.org/2005/gmx ../../gmx/gmx.xsd http://www.isotc211.org/2005/gco ../../gco/gco.xsd http://www.opengis.net/gml 
+../../gml/gml.xsd http://www.w3.org/1999/xlink ../../xlink/xlinks.xsd">
+
+<!--=====Catalogue description=====-->
+<name>
+	<gco:CharacterString>LandSense Demo Case Codelist</gco:CharacterString>
+</name>
+<scope>
+	<gco:CharacterString>Demo code list for LandSense</gco:CharacterString>
+</scope>
+	<fieldOfApplication>
+		<gco:CharacterString>LandSense Demonstration</gco:CharacterString>
+	</fieldOfApplication>
+	<versionNumber>
+		<gco:CharacterString>0.1</gco:CharacterString>
+	</versionNumber>
+	<versionDate>
+		<gco:Date>2017-11-23</gco:Date>
+	</versionDate>
+		
+	<!-- code lists -->
+	<codelistItem>
+		<CodeListDictionary gml:id="_name_of_attribute">
+			<gml:description>A code list for testing domain consistency</gml:description>
+			<gml:identifier codeSpace="ISOTC211/19119">DCPList</gml:identifier>
+			<codeEntry>
+				<CodeDefinition gml:id="_a_code_list">
+					<gml:description>This is an example code list entry for a particular attribute</gml:description>
+					<gml:identifier codeSpace="ISOTC211/19119">COM</gml:identifier>
+				</CodeDefinition>
+			</codeEntry>
+		</CodeListDictionary>
+		<CodeListDictionary gml:id="f_code">
+			<gml:description>A code list for a test set of attributes</gml:description>
+			<gml:identifier codeSpace="ISOTC211/19119">testAttributeList</gml:identifier>
+			<codeEntry>
+				<CodeDefinition gml:id="firstAttribute">
+					<gml:description>the first attribute in the code list</gml:description>
+					<gml:identifier codeSpace="ISOTC211/19119">AL020</gml:identifier>
+				</CodeDefinition>
+				<CodeDefinition gml:id="secondAttribute">
+					<gml:description>the second attribute in the code list</gml:description>
+					<gml:identifier codeSpace="ISOTC211/19119">AL030</gml:identifier>
+				</CodeDefinition>
+			</codeEntry>
+		</CodeListDictionary>
+	</codelistItem>
+
+</CT_CodelistCatalogue>
